@@ -1,0 +1,9 @@
+GET http://localhost:3000/tug-of-chore
+
+###
+POST http://localhost:3000/tug-of-chore/new
+Content-Type: application/json
+
+{
+  "text": "kiss Zhronka"
+}
