@@ -1,9 +1,16 @@
-GET http://localhost:3000/tug-of-chore
+GET http://localhost:3001/tug-of-chore
 
 ###
-POST http://localhost:3000/tug-of-chore/new
+POST http://localhost:3001/tug-of-chore/new
 Content-Type: application/json
 
 {
-  "text": "kiss Zhronka"
+  "text": "buy groceries",
+  "assigned_to": "Simon"
 }
+
+###
+DELETE http://localhost:3001/tug-of-chore/delete/63bf3bc0cff103eaea035d2f
+
+###
+GET http://localhost:3001/tug-of-chore/complete/63bf40f2ebcaf8183b81b3a4

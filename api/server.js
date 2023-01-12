@@ -23,10 +23,23 @@ app.get('/tug-of-chore', async (req, res) => {
 })
 app.post('/tug-of-chore/new', async (req, res) => {
   const chore = new TugOfChore({
-    text: req.body.text
+    text: req.body.text,
+    assigned_to: req.body.assigned_to,
   });
   chore.save();
   res.json(chore)
 });
 
-app.listen(3000, () => console.log('server started on port 3000'));
+app.delete('/tug-of-chore/delete/:id', async (req, res) => {
+  const result = await TugOfChore.findByIdAndDelete(req.params.id);
+  res.json(result);
+});
+
+app.get('/tug-of-chore/complete/:id', async (req, res) => {
+  const chore = await TugOfChore.findById(req.params.id);
+  chore.complete = !chore.complete;
+  chore.save();
+  res.json(chore);
+})
+
+app.listen(3001, () => console.log('server started on port 3001'));

@@ -10,11 +10,15 @@ const TugOfChoreSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  assigned_to: {
+    type: String,
+    required: true,
+  },
   timestamp: {
     type: String,
     default: Date.now(),
   }
 })
 
-const TugOfChore = mongoose.model("TugOfChore", TugOfChoreSchema);
+const TugOfChore = mongoose.model('TugOfChore', TugOfChoreSchema);
 module.exports = TugOfChore;
