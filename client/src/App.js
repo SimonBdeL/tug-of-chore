@@ -5,7 +5,6 @@ const API_BASE = "http://localhost:3001";
 
 const App = () => {
   const [chores, setChores] = useState([]);
-  // const [popupActive, setPopupActive] = useState(false);
   const [newChore, setNewChore] = useState("");
   const [points, setPoints] = useState(0);
 
@@ -24,8 +23,10 @@ const App = () => {
   }, []);
 
   const completeChore = async (id) => {
+    console.log("id from completeChore: ", id);
     const data = await fetch(API_BASE + "/tug-of-chore/complete/" + id)
       .then(res => res.json());
+
     setChores(chores => chores.map(chore => {
       if (chore._id === data._id) {
         chore.complete = data.complete;
@@ -35,6 +36,7 @@ const App = () => {
   };
 
   const deleteChore = async (id) => {
+    console.log("id from deleteChore: ", id);
     const data = await fetch(API_BASE + "/tug-of-chore/delete/" + id, {
       method: "DELETE"
   }).then(res => res.json());
@@ -50,11 +52,11 @@ const App = () => {
       },
       body: JSON.stringify({
         text: newChore,
-        assigned_to: "Hanna"
       })
     }).then(res => res.json());
 
     setChores([...chores, data]);
+    setNewChore("");
   }
   return (
     <div className="App">
@@ -63,7 +65,7 @@ const App = () => {
       <div className="chores">
         {
           chores.map((chore) =>
-            <Chore chore={ chore } completeChore= { completeChore } deleteChore={ deleteChore }setPoints={ setPoints } points={ points } key={ chore.id}/>
+            <Chore chore={ chore } completeChore= { completeChore } deleteChore={ deleteChore }setPoints={ setPoints } points={ points } key={ chore._id}/>
           )
         }
           {/* <div className="chore">

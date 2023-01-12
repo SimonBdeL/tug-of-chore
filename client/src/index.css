@@ -62,7 +62,7 @@ h4 {
 
 .chore.is-complete .checkbox {
   background-color: var(--primary);
-  background-image: linear-gradient(to bottom, var(--primary), var(--secondary));
+  /* background-image: linear-gradient(to bottom, var(--primary), var(--secondary)); */
 }
 
 .chore.text {
@@ -95,14 +95,26 @@ h4 {
   display:inline-block;
 } */
 
-.addAChore .button {
+.button {
   display:inline-block;
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
+  border-radius: 999px;
+  color: var(--light);
+  cursor: pointer;
+  background-color: var(--primary);
 }
 .addAChore .text {
+
   width: 20px;
-  height: 20px;
-  margin-bottom: 16px;
-  border-radius: 999px;
   background-color: var(--dark-alt);
+  border-radius: 16px;
+}
+.add-chore-input {
+  appearance: none;
+  border: none;
+  outline: none;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0px 2px 24px rgba(0, 0, 0, 0.2);
+  margin-bottom: 16px;
 }

@@ -23,11 +23,10 @@ app.get('/tug-of-chore', async (req, res) => {
 })
 app.post('/tug-of-chore/new', async (req, res) => {
   const chore = new TugOfChore({
-    text: req.body.text,
-    assigned_to: req.body.assigned_to,
+    text: req.body.text
   });
   chore.save();
-  res.json(chore)
+  res.json(chore);
 });
 
 app.delete('/tug-of-chore/delete/:id', async (req, res) => {
@@ -36,7 +35,9 @@ app.delete('/tug-of-chore/delete/:id', async (req, res) => {
 });
 
 app.get('/tug-of-chore/complete/:id', async (req, res) => {
+  console.log(req.params.id)
   const chore = await TugOfChore.findById(req.params.id);
+  // console.log(chore);
   chore.complete = !chore.complete;
   chore.save();
   res.json(chore);

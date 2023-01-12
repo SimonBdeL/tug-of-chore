@@ -8,6 +8,7 @@ const Chore = ( { chore, completeChore, deleteChore, setPoints, points } ) => {
             key={ chore._id }
             onClick={() => {
                 completeChore(chore._id);
+                console.log("id from Chores.js: ", chore._id);
                 setPoints(points+5);
               }
             }>
@@ -15,7 +16,10 @@ const Chore = ( { chore, completeChore, deleteChore, setPoints, points } ) => {
 
             <div className="text">{ chore.text}</div>
 
-            <div className="delete-chore" onClick={() => deleteChore(chore._id)}>x</div>
+            <div className="delete-chore" onClick={() => {
+                deleteChore(chore._id);
+                console.log("id from Chore.js: deleteChore: ", chore._id);
+              }}>x</div>
         </div>
   );
 }

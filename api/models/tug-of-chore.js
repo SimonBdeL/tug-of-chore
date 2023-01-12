@@ -10,10 +10,6 @@ const TugOfChoreSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  assigned_to: {
-    type: String,
-    required: true,
-  },
   timestamp: {
     type: String,
     default: Date.now(),

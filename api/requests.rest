@@ -5,12 +5,11 @@ POST http://localhost:3001/tug-of-chore/new
 Content-Type: application/json
 
 {
-  "text": "buy groceries",
-  "assigned_to": "Simon"
+  "text": "fix bug",
 }
 
 ###
 DELETE http://localhost:3001/tug-of-chore/delete/63bf3bc0cff103eaea035d2f
 
 ###
-GET http://localhost:3001/tug-of-chore/complete/63bf40f2ebcaf8183b81b3a4
+PUT http://localhost:3001/tug-of-chore/complete/63bf40f2ebcaf8183b81b3a4
