@@ -1,15 +1,18 @@
-GET http://localhost:3001/tug-of-chore
+GET http://localhost:3001/tugofchore
 
 ###
-POST http://localhost:3001/tug-of-chore/new
+GET http://localhost:3001/tugofchore/63c391daf877572136377700
+
+###
+POST http://localhost:3001/tugofchore
 Content-Type: application/json
 
 {
-  "text": "fix bug",
+    "text": "ask Hanna for tea"
 }
 
 ###
-DELETE http://localhost:3001/tug-of-chore/delete/63bf3bc0cff103eaea035d2f
+DELETE http://localhost:3001/tugofchore/63c391daf877572136377700
 
 ###
-PUT http://localhost:3001/tug-of-chore/complete/63bf40f2ebcaf8183b81b3a4
+PUT http://localhost:3001/tugofchore/complete/63bf40f2ebcaf8183b81b3a4
