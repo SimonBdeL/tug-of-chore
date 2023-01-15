@@ -1,18 +1,18 @@
 GET http://localhost:3001/tugofchore
 
 ###
-GET http://localhost:3001/tugofchore/63c391daf877572136377700
+GET http://localhost:3001/tugofchore/63c474788368e494fd507b41
 
 ###
 POST http://localhost:3001/tugofchore
 Content-Type: application/json
 
 {
-    "text": "ask Hanna for tea"
+    "text": "start blue ocean"
 }
 
 ###
-DELETE http://localhost:3001/tugofchore/63c391daf877572136377700
+DELETE http://localhost:3001/tugofchore/63c474788368e494fd507b41
 
 ###
-PUT http://localhost:3001/tugofchore/complete/63bf40f2ebcaf8183b81b3a4
+PATCH http://localhost:3001/tugofchore/complete/63c47906de32e69f683a93e0

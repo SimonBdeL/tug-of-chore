@@ -32,7 +32,15 @@ router.post("/", async (req, res) => {
 });
 
 // update chore
-router.patch("/:id", getChore, (req, res) => {});
+router.patch("/complete/:id", getChore, async (req, res) => {
+  res.chore.complete = !res.chore.complete;
+  try {
+    const updatedChore = await res.chore.save();
+    res.json(updatedChore);
+  } catch (err) {
+    res.statud(400);
+  }
+});
 
 // delete chore
 router.delete("/:id", getChore, async (req, res) => {
@@ -47,9 +55,9 @@ router.delete("/:id", getChore, async (req, res) => {
 async function getChore(req, res, next) {
   let chore;
   try {
-    console.log(req.params.id);
+    // console.log("getChore: req.params.id: ", req.params.id);
     chore = await Chore.findById(req.params.id);
-    console.log("chore: ", chore);
+    // console.log("chore: ", chore);
     if (chore == null) {
       return res.status(404).json({ message: "Cannot find chore" });
     }

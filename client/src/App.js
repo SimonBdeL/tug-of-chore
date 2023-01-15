@@ -21,7 +21,7 @@ const App = () => {
   }, []);
 
   const completeChore = async (id) => {
-    console.log("id from completeChore: ", id);
+    // console.log("id from completeChore: ", id);
     const data = await fetch(API_BASE + "/tugofchore/complete/" + id).then(
       (res) => res.json()
     );
