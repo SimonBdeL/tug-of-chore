@@ -1,4 +1,12 @@
-GET http://localhost:3001/tugofchore
+GET http://localhost:3001/tugofchore/chores
+
+###
+POST http://localhost:3001/tugofchore/login
+Content-Type: application/json
+
+{
+    "password": "test"
+}
 
 ###
 GET http://localhost:3001/tugofchore/63c474788368e494fd507b41
@@ -15,4 +23,4 @@ Content-Type: application/json
 DELETE http://localhost:3001/tugofchore/63c474788368e494fd507b41
 
 ###
-PATCH http://localhost:3001/tugofchore/complete/63c47906de32e69f683a93e0
+PATCH http://localhost:3001/tugofchore/complete/63c473ca8368e494fd507b38

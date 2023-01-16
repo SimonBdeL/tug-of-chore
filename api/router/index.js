@@ -1,16 +1,13 @@
 const express = require("express");
+const isLoggedIn = require("../middleware/isLoggedIn");
 const router = express.Router();
-const Chore = require("../models/tug_of_chore");
+const ChoreModel = require("../models/ChoreModel");
+
+// login
+router.post("/login", require("./loginRoute"));
 
 // get all chores
-router.get("/", async (req, res) => {
-  try {
-    const chores = await Chore.find();
-    res.json(chores);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
+router.get("/chores", isLoggedIn, require("./readChoresRoute"));
 
 // get one chore by id
 router.get("/:id", getChore, (req, res) => {
@@ -18,18 +15,7 @@ router.get("/:id", getChore, (req, res) => {
 });
 
 // create chore
-router.post("/", async (req, res) => {
-  const chore = new Chore({
-    text: req.body.text,
-  });
-
-  try {
-    const newChore = await chore.save();
-    res.status(201).json(newChore);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-});
+router.post("/chores", isLoggedIn, require("./createChoreRoute"));
 
 // update chore
 router.patch("/complete/:id", getChore, async (req, res) => {
@@ -56,7 +42,7 @@ async function getChore(req, res, next) {
   let chore;
   try {
     // console.log("getChore: req.params.id: ", req.params.id);
-    chore = await Chore.findById(req.params.id);
+    chore = await ChoreModel.findById(req.params.id);
     // console.log("chore: ", chore);
     if (chore == null) {
       return res.status(404).json({ message: "Cannot find chore" });

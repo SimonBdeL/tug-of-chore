@@ -15,9 +15,10 @@ db.once("open", () => console.log("connected to db"));
 
 app.use(express.json());
 app.use(cors());
+app.use(morgan("dev"));
 
-const tugofchoreRouter = require("./routes");
-app.use("/tugofchore", tugofchoreRouter);
+const router = require("./router");
+app.use("/tugofchore", router);
 
 // const TugOfChore = require("./models/tug-of-chore");
 

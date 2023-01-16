@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const choreSchema = new mongoose.Schema({
+const ChoreSchema = new mongoose.Schema({
   text: {
     type: String,
     required: true,
@@ -31,4 +31,4 @@ const choreSchema = new mongoose.Schema({
 //   },
 // });
 
-module.exports = mongoose.model("Chore", choreSchema);
+module.exports = mongoose.model("Chore", ChoreSchema);
